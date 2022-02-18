@@ -1,8 +1,8 @@
 // Character arrays
-var specialChar = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".split('');
-var numericChar = "1234567890".split('');
-var alphaChar = "abcdefghijklmnopqrstuvwxyz".split('');
-var alphaUpChar = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
+var specialArray = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".split('');
+var numericArray = "1234567890".split('');
+var alphaArray = "abcdefghijklmnopqrstuvwxyz".split('');
+var alphaUpArray = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -24,16 +24,16 @@ var customObject = {
 function generatePassword() {
   var password = ""
   if (customObject.special) {
-    password = password + specialChar
+    password = password + specialArray
   };
   if (customObject.numbers){
-    password = password + numericChar
+    password = password + numericArray
   };
   if (customObject.alpha) {
-    password = password + alphaChar
+    password = password + alphaArray
   };
   if (customObject.alphaUp) {
-    password = password + alphaUpChar
+    password = password + alphaUpArray
   };
   return password
 }
