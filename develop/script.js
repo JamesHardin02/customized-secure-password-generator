@@ -23,12 +23,40 @@ var customObject = {
   }
 }
 
+function validatePassword(ActPassword) {
+  debugger;
+  if (customObject.special){
+
+    if (!ActPassword[ActPassword.search(/\W/)]){
+      ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], special[Math.floor(Math.random() * special.length)]);
+    }
+  };
+
+  if (customObject.numeric){
+    if (!ActPassword.search(/\d/)){
+      ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], numeric[Math.floor(Math.random() * numeric.length)]);
+    }
+  };
+
+  if (customObject.alpha){
+    if (!ActPassword.search(/[a-z]/)){
+      ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], alpha[Math.floor(Math.random() * alpha.length)]);
+    }
+  };
+
+  if (customObject.alphaUp){
+    if (!ActPassword.search(/[A-Z]/)){
+      ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], alphaUp[Math.floor(Math.random() * alphaUp.length)]);
+    }
+  };
+  return ActPassword
+};
+
 // garuntee at least one of slection char to be built in
 function generatePassword() {
   // Shuffle arrays then add to AllPossPassword
   var AllPossPassword = "";
   var ActPassword = "";
-  var valid = false;
   // divide chosen strings to input evenly
 
   if (customObject.special) {
@@ -48,39 +76,15 @@ function generatePassword() {
     // gathers random characters from each selection 
     // then concatenate together
   for (i = 0; i < customObject.lengthSelect; i++){
-    // switch
-    //  case (customObject.special):
-    //    var notMatched = true
-    //    while (notMatch){
-    //      if (AllPossPassword[Math.floor(Math.random() * AllPossPassword.length)].match("/W")){
-    //           
-    //      };
-    //    }
-    //  case(customObject.numeric):
-    //    var notMatched = true
-    //    while (notMatch){
-    //      if (AllPossPassword[Math.floor(Math.random() * AllPossPassword.length)].match("/D")){
-    //           
-    //      };
-    //    }
-
-    ActPassword = AllPossPassword[Math.floor(Math.random() * AllPossPassword.length)];
-    // test if special char matches at any index
-    console.log(ActPassword[ActPassword.search("\W")])
-    console.log(ActPassword[ActPassword.search(special)])
-    if (ActPassword[ActPassword.search(special)] === //search through special array for that character ) {
-      valid = true;
-      console.log(valid)
-    }
+    ActPassword = ActPassword + AllPossPassword[Math.floor(Math.random() * AllPossPassword.length)];
+    console.log(ActPassword)
   };
 
-  // check function
-  // if customObject.special === true then check actpassword has 1 special character
-  // 
-  if (valid){
-    return ActPassword
-  }
-}
+  // test if special char matches at any index
+  ActPassword = validatePassword(ActPassword);
+
+  return ActPassword
+};
 
 // Write AllPossPassword to the #AllPossPassword input
 function writePassword() {
