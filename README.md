@@ -9,4 +9,4 @@ features includes:
 ## Password Generator
 Link: [Password Generator Webpage](https://jameshardin02.github.io/customized-secure-password-generator/).
 
-![Picture of randomly generated password](./assets/images/webpage.png)
+![Picture of randomly generated password](./develop/assets/images/webpage.png)
