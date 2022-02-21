@@ -28,7 +28,7 @@ function validatePassword(ActPassword) {
   var numericSearch = ActPassword.search(/\d/)
   var alphaSearch = ActPassword.search(/[a-z]/)
   var alphaUpSearch = ActPassword.search(/[A-Z]/)
-  debugger;
+
   if (customObject.special){
     if (specialSearch === -1){
       ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], special[Math.floor(Math.random() * special.length)]);
