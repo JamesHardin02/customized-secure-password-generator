@@ -24,28 +24,31 @@ var customObject = {
 }
 
 function validatePassword(ActPassword) {
+  var specialSearch = ActPassword.search(/\W/)
+  var numericSearch = ActPassword.search(/\d/)
+  var alphaSearch = ActPassword.search(/[a-z]/)
+  var alphaUpSearch = ActPassword.search(/[A-Z]/)
   debugger;
   if (customObject.special){
-
-    if (!ActPassword[ActPassword.search(/\W/)]){
+    if (specialSearch === -1){
       ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], special[Math.floor(Math.random() * special.length)]);
     }
   };
 
   if (customObject.numeric){
-    if (!ActPassword.search(/\d/)){
+    if (numericSearch === -1){
       ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], numeric[Math.floor(Math.random() * numeric.length)]);
     }
   };
 
   if (customObject.alpha){
-    if (!ActPassword.search(/[a-z]/)){
+    if (alphaSearch === -1){
       ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], alpha[Math.floor(Math.random() * alpha.length)]);
     }
   };
 
   if (customObject.alphaUp){
-    if (!ActPassword.search(/[A-Z]/)){
+    if (alphaUpSearch === -1){
       ActPassword = ActPassword.replace(ActPassword[Math.floor(Math.random() * ActPassword.length)], alphaUp[Math.floor(Math.random() * alphaUp.length)]);
     }
   };
